@@ -1,15 +1,14 @@
 import {ICar, IFilter} from "@/types";
 
 export const fetchCars = async (filters: IFilter) => {
-  const headers = {};
   const { manufacturer, year, limit, model, fuel } = filters;
   // @ts-ignore
   const res = await fetch(
     `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&year=${year}&model=${model}&fuel_type=${fuel}&limit=${limit}`,
     {
       headers: {
-        "X-RapidAPI-Key": process.env.NEXT_PUBLIC_X_RAPID_API_KEY,
-        "X-RapidAPI-Host": process.env.NEXT_PUBLIC_X_RAPID_API_HOST,
+        "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY,
+        "X-RapidAPI-Host": process.env.NEXT_PUBLIC_RAPID_API_HOST,
       }
     },
   );
